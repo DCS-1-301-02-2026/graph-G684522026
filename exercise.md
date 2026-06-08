@@ -12,8 +12,13 @@
 digraph {
     rankdir = "LR";
     node [shape=box];
+    "  情報工学概論  " -> "　プログラミング基礎I　 "
+    "  情報工学概論  " -> "   計算機工学  " -> "   論理回路  "
+    "  基礎ゼミ "->"　プログラミング基礎I　 "->"　 プログラミング基礎Ⅱ   "
+    "     コンピュータリテラシー    " -> "   プログラミングI    "->"  プログラミングII    "
+    
+    
 
-    "     コンピュータリテラシー    " -> "   プログラミングI  ";
 }
 ```
 
@@ -27,6 +32,24 @@ digraph {
 @startwbs ex02
 * 拓殖大学
 ** 商学部
+*** 経営学科
+*** 国際ビジネス学科
+*** 会計学科
+** 政経学部
+*** 法律政治学科
+*** 経済学科
+** 外国語学部
+*** 英米語学科
+*** 中国語学科
+*** スペイン語学科
+*** 国際日本語学科
+** 工学部
+*** 機械システム工学科
+*** 電子システム工学科
+*** 情報工学科
+*** デザイン工学科
+** 国際学部
+*** 国際学科
 @endwbs
 ```
 
@@ -40,10 +63,25 @@ digraph {
 @startuml ex03
 left to right direction
 actor 学生 as student
+actor "教員" as faculty
 rectangle {
-    usecase "課題の受領" as uc2
+    usecase "提出結果の採点" as 8
+    usecase "リモートリポジトリにpush" as 7
+    usecase "修正のコミット" as 6
+    usecase "修正をステージに上げる" as 5
+    usecase "課題ファイルの修正" as 4
+    usecase "リポジトリのクローン" as 3
+    usecase "課題の受領" as 2
+    usecase "課題の登録" as 1
 }
-student --> uc2
+1 <-- faculty
+student --> 2
+student --> 3
+student --> 4
+student --> 5
+student --> 6
+student --> 7
+8 <-- faculty
 @enduml
 ```
 
@@ -53,12 +91,30 @@ student --> uc2
 独自の図解を作成せよ．対象は自由に決めてよいが，
 誰かのコピーにならないように留意せよ．
 
+```plantUML
+@startwbs 12
+* プログラミング言語 難易度別
+** 易しい
+*** Viscuit
+*** Scratch
+*** HTML
+*** PHP
+*** Ruby
+*** python
+** 普通
+*** JavaScript
+*** C#
+*** Swift
+** 難しい
+*** C言語
+*** C++
+*** java
+@endwbs
 ```
-```
-
+引用元　https://wonder.litalico.jp/news/column2207-6/
 
 ## チェック
-- [ ] 課題 3.1 有向グラフ
-- [ ] 課題 3.2 WBS
-- [ ] 課題 3.3 ユースケース図
-- [ ] 課題 3.4 オリジナルの図解
+- [x] 課題 3.1 有向グラフ
+- [x] 課題 3.2 WBS
+- [x] 課題 3.3 ユースケース図
+- [x] 課題 3.4 オリジナルの図解
